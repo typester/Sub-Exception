@@ -7,7 +7,7 @@ SYNOPSIS
         use Redis;
         use Sub::Exception redis_cmds => sub { MyException->throw($_) };
 
-        # when some exception occurred in this block, exception MyException throwed.    
+        # when some exception occurred in this block, exception MyException threw.
         redis_cmds {
             my $redis = Redis->new;
         
@@ -16,7 +16,7 @@ SYNOPSIS
             $redis->exec;
         };
 
-    Optionally have class methods exporting codeblock to specified package.
+    Optionally have class methods exporting code block to specified package.
 
         use Sub::Exception;
     
@@ -46,11 +46,11 @@ IMPORT FUNCTION
             # some database functions
         };
 
-    Exceptions in this code block is catched by its error handler:
+    Exceptions in this code block is caught by its error handler:
 
         sub { die sprintf 'DB Error: %s', $_ }
 
-    So all exceptions wraps 'DB Error: ' prefix string and rethrowed.
+    So all exceptions wraps 'DB Error: ' prefix string and re-throw it.
 
 CLASS METHODS
   export( name => 'Str', error_handler => 'CodeRef', package => 'Str' )
@@ -73,7 +73,7 @@ CLASS METHODS
             package       => __PACKAGE__,
         );
 
-    This method is a bit verbosily but it's possible to export functions to
+    This method is a bit verbosity but it's possible to export functions to
     any packages.
 
 AUTHOR

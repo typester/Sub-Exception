@@ -3,6 +3,7 @@ use warnings;
 
 BEGIN {
     my @devmods = qw(
+        Module::Install::AuthorTests
         Module::Install::ReadmeFromPod
         Module::Install::Repository
     );
@@ -31,6 +32,7 @@ test_requires 'Test::More' => '0.86';
 requires 'perl' => '5.008001';
 
 readme_from 'lib/Sub/Exception.pm';
+author_tests 'xt';
 auto_set_repository;
 
 WriteAll;

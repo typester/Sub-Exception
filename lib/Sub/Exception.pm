@@ -42,6 +42,8 @@ sub export {
 
 __END__
 
+=for stopwords Str
+
 =head1 NAME
 
 Sub::Exception - Code block with exception handler.
@@ -53,7 +55,7 @@ Usually, this module acts in use phase:
     use Redis;
     use Sub::Exception redis_cmds => sub { MyException->throw($_) };
 
-    # when some exception occurred in this block, exception MyException throwed.    
+    # when some exception occurred in this block, exception MyException threw.
     redis_cmds {
         my $redis = Redis->new;
         
@@ -62,7 +64,7 @@ Usually, this module acts in use phase:
         $redis->exec;
     };
 
-Optionally have class methods exporting codeblock to specified package.
+Optionally have class methods exporting code block to specified package.
 
     use Sub::Exception;
     
@@ -93,11 +95,11 @@ And these subs has own error handlers.
         # some database functions
     };
 
-Exceptions in this code block is catched by its error handler:
+Exceptions in this code block is caught by its error handler:
 
     sub { die sprintf 'DB Error: %s', $_ }
 
-So all exceptions wraps 'DB Error: ' prefix string and rethrowed.
+So all exceptions wraps 'DB Error: ' prefix string and re-throw it.
 
 =head1 CLASS METHODS
 
@@ -122,7 +124,7 @@ is equivalent to:
         package       => __PACKAGE__,
     );
 
-This method is a bit verbosily but it's possible to export functions to any packages.
+This method is a bit verbosity but it's possible to export functions to any packages.
 
 =head1 AUTHOR
 
